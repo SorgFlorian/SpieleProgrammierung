@@ -19,3 +19,12 @@
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
+
+# LaTeX garbage
+/ZwischenPraesentation1/*.log
+/ZwischenPraesentation1/*.nav
+/ZwischenPraesentation1/*.out
+/ZwischenPraesentation1/*.pdf
+/ZwischenPraesentation1/*.snm
+/ZwischenPraesentation1/*.toc
+/ZwischenPraesentation1/*.aux
