@@ -7,7 +7,7 @@
 \useoutertheme[footline=authortitle]{miniframes}
 \setbeamertemplate{navigation symbols}{}%remove navigation symbols
 \setbeamertemplate{blocks}[rounded][shadow=true]
-\title{Spieleprogrammierung -- Zwischenpräsentation 1}
+\title{Spieleprogrammierung -- Zwischenpräsentation 2}
 \author{Simon Bausch, Florian Sorg}
 \institute{Hochschule Aalen}
 \newcommand*\oldmacro{}%
@@ -25,49 +25,32 @@
 	\tableofcontents
 \end{frame}
 
-\section{Spielidee}
+\section{Überblick}
 \begin{frame}
 	\begin{itemize}
-		\item
-			Genre: 3D Jump \& Run
-		\item
-			Twist: Einsammeln von Items "andert die
-			Richtung der Schwerkraft
-		\item
-			R"atsel/Geschicklichkeit -- Nicht herunterfallen, etc...
-		\item
-			Ziel: Finde den Weg zu einem bestimmten Punkt.
-		\item
-			eventuell mehrere L"osungswege
-		\item
-			Die Story muss noch ausgearbeitet/ausgedacht werden.
+		\item 3D Jump'n Run
+		\item "Anderung der Schwerkraft
+		\item Unity, Skripte in C\#
 	\end{itemize}
 \end{frame}
 
-\section{Eingesetzte Software}
+\section{Aktueller Stand}
 \begin{frame}
 	\begin{itemize}
-		\item Engine: Unity 3D
-		\item Vorteile:
+		\item Bisher - Welt um Spieler drehen um ver"anderte Schwerkraft zu simulieren
 			\begin{itemize}
-				\item
-					Einige Models, Animationen, ...
-					sind vordefiniert im ``Asset Store''
-					verf"ugbar.
-				\item ``kostenlos''
-				\item platformunabh"angig
-				\item gut dokumentiert (Google)
+				\item Führte zu komischen/unvorhersehbarem Verhalten 
 			\end{itemize}
-		\item Nachteile:
+			\item Jetzt - Tätsächliche Änderung der Schwerkraft
 			\begin{itemize}
-				\item ``Dont call us, we'll call you'' -- wenig Kontrolle
-				\item gro"ser Overhead
-				\item Performance k"onnte besser sein
+				\item Kompletter revamp war notwendig
+				\item Es bestehen noch Probleme bei der Bewegung nach einem Wechsel der Schwerkraft
 			\end{itemize}
+			\item Kamaraführung lässt noch zu wünschen übrig
 	\end{itemize}
 \end{frame}
 
-\section{Zeitplan}
+\section{Angepasster Zeitplan}
 \begin{frame}
 	\begin{tabular}{|l|l|}
 		\hline
