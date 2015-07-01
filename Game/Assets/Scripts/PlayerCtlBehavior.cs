@@ -5,6 +5,7 @@ using System.Collections;
 public class PlayerCtlBehavior : MonoBehaviour {
 
 	private Vector3 targetGrav;
+	private bool killed;
 
 	public float boostStrength = 5.0f;
 
@@ -22,6 +23,10 @@ public class PlayerCtlBehavior : MonoBehaviour {
 			//body.velocity = Physics.gravity.normalized * boostStrength;
 			transform.position += Physics.gravity.normalized * boostStrength;
 		}
+		if(killed) {
+			killed = false;
+			Application.LoadLevel(Application.loadedLevelName);
+		}
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -30,6 +35,8 @@ public class PlayerCtlBehavior : MonoBehaviour {
 			GravitationOrientation orientation = other.gameObject.GetComponent<GravitationOrientation>();
 			targetGrav = new Vector3(orientation.x_Grav_Factor,orientation.y_Grav_Factor,orientation.z_Grav_Factor);
 		}
+		else if(other.gameObject.tag == "killZone")
+			killed = true;
 	}
 
 	bool gravityUpdate() {
