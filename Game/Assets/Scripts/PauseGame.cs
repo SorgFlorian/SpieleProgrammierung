@@ -3,11 +3,17 @@ using System.Collections;
 
 public class PauseGame : MonoBehaviour {
 
-	private GameObject pauseMenu;
+	public GameObject pauseMenu;
+
+	private bool paused = false;
+
 	// Use this for initialization
 	void Start () {
 	
-		pauseMenu = GameObject.Find("PauseMenu");
+		if (pauseMenu == null) 
+		{
+			pauseMenu = GameObject.Find ("PauseMenu");
+		}
 		pauseMenu.SetActive (false);
 	}
 	
@@ -17,9 +23,21 @@ public class PauseGame : MonoBehaviour {
 		{
 			if (pauseMenu != null)
 			{
-				Time.timeScale = 0;
-				pauseMenu.SetActive(true);
-			}else{
+				if (paused)
+				{
+					paused = false;
+					Time.timeScale = 1;
+					pauseMenu.SetActive(false);
+				}
+				else
+				{
+					paused = true;
+					Time.timeScale = 0;
+					pauseMenu.SetActive(true);
+				}
+			}
+			else
+			{
 				Debug.LogError("PauseMenu not found");
 			}
 		}
