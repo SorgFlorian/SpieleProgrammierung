@@ -126,8 +126,8 @@ GUITexture:
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
-    x: 474
-    y: 277
+    x: 449
+    y: 261
     width: 213
     height: 50
   m_LeftBorder: 40
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_RunCycleLegOffset: .200000003
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
-  m_GroundCheckDistance: .300000012
+  m_GroundCheckDistance: 1
 --- !u!114 &107653369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,10 +328,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentpos:
-    left: 431
-    right: 714
-    top: 184
-    bottom: 463
+    left: 406
+    right: 689
+    top: 168
+    bottom: 447
     isStyle: 0
   relative:
     left: 0
@@ -346,10 +346,10 @@ MonoBehaviour:
     bottom: 115
     isStyle: 0
   absolute:
-    left: 474
-    right: 687
-    top: 249
-    bottom: 299
+    left: 449
+    right: 662
+    top: 233
+    bottom: 283
     isStyle: 0
   layerOffset: 1
   lockPosition: 0
@@ -589,9 +589,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentpos:
     left: 0
-    right: 1134
+    right: 1084
     top: 0
-    bottom: 638
+    bottom: 606
     isStyle: 0
   relative:
     left: 50
@@ -606,10 +606,10 @@ MonoBehaviour:
     bottom: 144
     isStyle: 0
   absolute:
-    left: 431
-    right: 714
-    top: 184
-    bottom: 463
+    left: 406
+    right: 689
+    top: 168
+    bottom: 447
     isStyle: 0
   layerOffset: 1
   lockPosition: 0
@@ -772,7 +772,7 @@ GUIText:
   m_Text: Paused
   m_Anchor: 0
   m_Alignment: 0
-  m_PixelOffset: {x: 453, y: 433}
+  m_PixelOffset: {x: 428, y: 417}
   m_LineSpacing: 1
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: debe8a50832fec8408b216ac64b774a7, type: 3}
@@ -883,8 +883,8 @@ GUITexture:
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
-    x: 477
-    y: 217
+    x: 452
+    y: 201
     width: 210
     height: 50
   m_LeftBorder: 40
@@ -1034,6 +1034,22 @@ Prefab:
       propertyPath: m_TagString
       value: MainCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: baec086904791744185aaa07a6cf55c2, type: 2}
+      propertyPath: m_Target
+      value: 
+      objectReference: {fileID: 107653366}
+    - target: {fileID: 11400000, guid: baec086904791744185aaa07a6cf55c2, type: 2}
+      propertyPath: m_MoveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: baec086904791744185aaa07a6cf55c2, type: 2}
+      propertyPath: m_TurnSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: baec086904791744185aaa07a6cf55c2, type: 2}
+      propertyPath: m_RollSpeed
+      value: .600000024
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baec086904791744185aaa07a6cf55c2, type: 2}
   m_IsPrefabParent: 0
@@ -1076,7 +1092,7 @@ GUIText:
   m_Text: Continue
   m_Anchor: 4
   m_Alignment: 0
-  m_PixelOffset: {x: 580.5, y: 362}
+  m_PixelOffset: {x: 555.5, y: 346}
   m_LineSpacing: 1
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: debe8a50832fec8408b216ac64b774a7, type: 3}
@@ -1124,7 +1140,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 432138, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.73000002
+      value: -1.04999995
       objectReference: {fileID: 0}
     - target: {fileID: 432138, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1132,7 +1148,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 432138, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -2.3499999
+      value: 2.04999995
       objectReference: {fileID: 0}
     - target: {fileID: 432138, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1161,11 +1177,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &754432528
+--- !u!4 &754432528 stripped
 Transform:
   m_PrefabParentObject: {fileID: 432138, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
   m_PrefabInternal: {fileID: 754432527}
---- !u!1 &754432529
+--- !u!1 &754432529 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 198322, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
   m_PrefabInternal: {fileID: 754432527}
@@ -1183,7 +1199,7 @@ MonoBehaviour:
   x_Grav_Factor: 0
   y_Grav_Factor: 1
   z_Grav_Factor: 0
---- !u!1 &777818315
+--- !u!1 &777818315 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 198322, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
   m_PrefabInternal: {fileID: 1509863641}
@@ -1228,7 +1244,7 @@ GUIText:
   m_Text: Main Menu
   m_Anchor: 4
   m_Alignment: 0
-  m_PixelOffset: {x: 580.5, y: 300}
+  m_PixelOffset: {x: 555.5, y: 284}
   m_LineSpacing: 1
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: debe8a50832fec8408b216ac64b774a7, type: 3}
@@ -1310,11 +1326,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &848898823
+--- !u!4 &848898823 stripped
 Transform:
   m_PrefabParentObject: {fileID: 432138, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
   m_PrefabInternal: {fileID: 848898822}
---- !u!1 &848898824
+--- !u!1 &848898824 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 198322, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
   m_PrefabInternal: {fileID: 848898822}
@@ -1371,8 +1387,8 @@ GUITexture:
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
-    x: 474
-    y: 339
+    x: 449
+    y: 323
     width: 213
     height: 50
   m_LeftBorder: 40
@@ -1421,10 +1437,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentpos:
-    left: 431
-    right: 714
-    top: 184
-    bottom: 463
+    left: 406
+    right: 689
+    top: 168
+    bottom: 447
     isStyle: 0
   relative:
     left: 0
@@ -1439,10 +1455,10 @@ MonoBehaviour:
     bottom: 177
     isStyle: 0
   absolute:
-    left: 474
-    right: 687
-    top: 311
-    bottom: 361
+    left: 449
+    right: 662
+    top: 295
+    bottom: 345
     isStyle: 0
   layerOffset: 1
   lockPosition: 0
@@ -1613,7 +1629,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1509863642
+--- !u!4 &1509863642 stripped
 Transform:
   m_PrefabParentObject: {fileID: 432138, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
   m_PrefabInternal: {fileID: 1509863641}
@@ -1675,11 +1691,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1551985770
+--- !u!4 &1551985770 stripped
 Transform:
   m_PrefabParentObject: {fileID: 432138, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
   m_PrefabInternal: {fileID: 1551985769}
---- !u!1 &1551985771
+--- !u!1 &1551985771 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 198322, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
   m_PrefabInternal: {fileID: 1551985769}
@@ -1736,7 +1752,7 @@ GUIText:
   m_Text: Exit
   m_Anchor: 4
   m_Alignment: 0
-  m_PixelOffset: {x: 582, y: 240}
+  m_PixelOffset: {x: 557, y: 224}
   m_LineSpacing: 1
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: debe8a50832fec8408b216ac64b774a7, type: 3}
@@ -1864,7 +1880,7 @@ Prefab:
     - {fileID: 9500000, guid: 0329f9900cf52e1478b395083fa2a255, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 0329f9900cf52e1478b395083fa2a255, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1858423544
+--- !u!4 &1858423544 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400070, guid: 0329f9900cf52e1478b395083fa2a255, type: 3}
   m_PrefabInternal: {fileID: 1858423543}
@@ -1926,11 +1942,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1865824720
+--- !u!4 &1865824720 stripped
 Transform:
   m_PrefabParentObject: {fileID: 432138, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
   m_PrefabInternal: {fileID: 1865824719}
---- !u!1 &1865824721
+--- !u!1 &1865824721 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 198322, guid: 337777ffe8c2a3f429c0863c74461fea, type: 2}
   m_PrefabInternal: {fileID: 1865824719}
@@ -1987,8 +2003,8 @@ GUITexture:
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
-    x: 431
-    y: 175
+    x: 406
+    y: 159
     width: 283
     height: 279
   m_LeftBorder: 81
@@ -2070,10 +2086,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentpos:
-    left: 431
-    right: 714
-    top: 184
-    bottom: 463
+    left: 406
+    right: 689
+    top: 168
+    bottom: 447
     isStyle: 0
   relative:
     left: 0
@@ -2088,10 +2104,10 @@ MonoBehaviour:
     bottom: 237
     isStyle: 0
   absolute:
-    left: 477
-    right: 687
-    top: 371
-    bottom: 421
+    left: 452
+    right: 662
+    top: 355
+    bottom: 405
     isStyle: 0
   layerOffset: 1
   lockPosition: 0
@@ -2281,9 +2297,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentpos:
     left: 0
-    right: 1134
+    right: 1084
     top: 0
-    bottom: 638
+    bottom: 606
     isStyle: 0
   relative:
     left: 0
@@ -2299,9 +2315,9 @@ MonoBehaviour:
     isStyle: 0
   absolute:
     left: 0
-    right: 1134
+    right: 1084
     top: 0
-    bottom: 638
+    bottom: 606
     isStyle: 0
   layerOffset: 1
   lockPosition: 0

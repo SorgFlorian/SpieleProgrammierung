@@ -58,7 +58,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_TurnAmount = Mathf.Atan2(move.x, move.z);
 			m_ForwardAmount = move.z;
 
-		
 
 			ApplyExtraTurnRotation();
 
@@ -128,7 +127,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_Animator.SetBool("OnGround", m_IsGrounded);
 			if (!m_IsGrounded)
 			{
-				m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
+				//m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
+				m_Animator.SetFloat("Jump", (m_Rigidbody.velocity
+						- Vector3.ProjectOnPlane(m_Rigidbody.velocity, -Physics.gravity)).magnitude);
 			}
 
 			// calculate which leg is behind, so as to leave that leg trailing in the jump animation
@@ -163,7 +164,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Physics.gravity;
 			m_Rigidbody.AddForce(extraGravityForce);
 
-			m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
+			//m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
 		}
 
 
@@ -173,10 +174,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			if (jump && !crouch && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
 			{
 				// jump!
-				m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
+				//m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
+				m_Rigidbody.velocity = m_Rigidbody.velocity + -Physics.gravity.normalized * m_JumpPower;
 				m_IsGrounded = false;
 				m_Animator.applyRootMotion = false;
-				m_GroundCheckDistance = 0.1f;
+				//m_GroundCheckDistance = 0.1f;
 			}
 		}
 
@@ -185,6 +187,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// help the character turn faster (this is in addition to root rotation in the animation)
 			float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
 			transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
+			//transform.Rotate((m_TurnAmount * turnSpeed * Time.deltaTime) * -Physics.gravity.normalized);
+			//transform.Rotate(-Physics.gravity.normalized, m_TurnAmount * turnSpeed * Time.deltaTime);
 		}
 
 
@@ -198,6 +202,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 				// we preserve the existing y part of the current velocity.
 				v.y = m_Rigidbody.velocity.y;
+				float yvel = (m_Rigidbody.velocity
+						- Vector3.ProjectOnPlane(m_Rigidbody.velocity, -Physics.gravity)).magnitude;
+				//v = Vector3.ProjectOnPlane(v, -Physics.gravity) + -Physics.gravity.normalized * yvel;
 				m_Rigidbody.velocity = v;
 			}
 		}
