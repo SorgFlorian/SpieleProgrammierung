@@ -3,21 +3,24 @@ using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerCtlBehavior : MonoBehaviour {
-	
+
 	private Vector3 targetGrav;
 
-
+	public float boostStrength = 5.0f;
 
 	void Start() {
 		targetGrav = new Vector3(0.0f,-1.0f,0.0f);
 	}
 
 	void FixedUpdate() {
-		if (gravityUpdate ()) 
+		if (gravityUpdate ())
 		{
+			float playerHeight = GetComponent<CapsuleCollider>().height;
 			transform.up = -Physics.gravity;
 			Rigidbody body = GetComponent<Rigidbody>();
 			body.velocity = new Vector3(0.0f,0.0f,0.0f);
+			//body.velocity = Physics.gravity.normalized * boostStrength;
+			transform.position += Physics.gravity.normalized * boostStrength;
 		}
 	}
 

@@ -53,10 +53,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			move = transform.InverseTransformDirection(move);
 			Debug.Log ("After" + move);
 			CheckGroundStatus();
-			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
+			//move = Vector3.ProjectOnPlane(move, m_GroundNormal);
 			Debug.Log ("ProjectOnPlane: " + move);
 			m_TurnAmount = Mathf.Atan2(move.x, move.z);
 			m_ForwardAmount = move.z;
+			Debug.Log("m_ForwardAmount = " + m_ForwardAmount + ", move = " + move + ", m_TurnAmount = " + m_TurnAmount);
 
 
 			ApplyExtraTurnRotation();
@@ -201,7 +202,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
 
 				// we preserve the existing y part of the current velocity.
-				v.y = m_Rigidbody.velocity.y;
+				//v.y = m_Rigidbody.velocity.y;
 				float yvel = (m_Rigidbody.velocity
 						- Vector3.ProjectOnPlane(m_Rigidbody.velocity, -Physics.gravity)).magnitude;
 				//v = Vector3.ProjectOnPlane(v, -Physics.gravity) + -Physics.gravity.normalized * yvel;
