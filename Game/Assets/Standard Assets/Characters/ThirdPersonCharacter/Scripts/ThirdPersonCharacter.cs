@@ -49,15 +49,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// turn amount and forward amount required to head in the desired
 			// direction.
 			if (move.magnitude > 1f) move.Normalize();
-			Debug.Log ("Before" + move);
 			move = transform.InverseTransformDirection(move);
-			Debug.Log ("After" + move);
 			CheckGroundStatus();
-			//move = Vector3.ProjectOnPlane(move, m_GroundNormal);
-			Debug.Log ("ProjectOnPlane: " + move);
 			m_TurnAmount = Mathf.Atan2(move.x, move.z);
 			m_ForwardAmount = move.z;
-			Debug.Log("m_ForwardAmount = " + m_ForwardAmount + ", move = " + move + ", m_TurnAmount = " + m_TurnAmount);
 
 
 			ApplyExtraTurnRotation();
@@ -229,7 +224,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			else
 			{
 				m_IsGrounded = false;
-				m_GroundNormal = transform.up;
+				m_GroundNormal = Vector3.up;
 				m_Animator.applyRootMotion = false;
 			}
 		}

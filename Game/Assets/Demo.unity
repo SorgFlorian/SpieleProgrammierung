@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11924096bbc9790479702020af404b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostStrength: 5
+  boostStrength: 1
 --- !u!114 &107653368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_RunCycleLegOffset: .200000003
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
-  m_GroundCheckDistance: 1
+  m_GroundCheckDistance: .200000003
 --- !u!114 &107653369
 MonoBehaviour:
   m_ObjectHideFlags: 0
