@@ -6,6 +6,7 @@ TagManager:
   tags:
   - gravArrow
   - killZone
+  - targetZone
   layers:
   - Default
   - TransparentFX
