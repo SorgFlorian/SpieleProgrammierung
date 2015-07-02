@@ -1,0 +1,25 @@
+#!/bin/bash
+
+pdfviewer=acroread
+viewflagspre=()
+viewflagspost=()
+if [ -f lstate ]; then
+	. lstate
+fi
+
+rm -f main.pdf
+pdflatex main.tex &&
+pdflatex main.tex &&
+pdflatex main.tex &&
+detach "$pdfviewer" "${viewflagspre[@]}" main.pdf "${viewflagspost[@]}" && (
+	tput setaf 3
+	perl -e "print '-' x $(tput cols) . \"\\n\";"
+	tput sgr0
+	sed '/^Overfull/,+2!d' main.log
+	num="$(grep Overfull main.log | wc -l)"
+	[ "$num" = 0 ] && tput setaf 2 || (tput setaf 1; tput bold)
+	echo -n "$num "
+	tput sgr0
+	echo overfull boxes
+	true
+)

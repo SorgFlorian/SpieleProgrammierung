@@ -1,0 +1,101 @@
+\documentclass[landscape,compress,table]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{xcolor}
+\usetheme{Warsaw}
+\usefonttheme{professionalfonts}
+\useoutertheme[footline=authortitle]{miniframes}
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\title{Spieleprogrammierung -- Endpräsentation}
+\author{Simon Bausch, Florian Sorg}
+\institute{Hochschule Aalen}
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle%
+\renewcommand*\insertshorttitle{%
+	\oldmacro\hfill%
+	\insertframenumber\,/\,\inserttotalframenumber}
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\tableofcontents
+\end{frame}
+
+\section{Idee}
+\begin{frame}
+	\begin{itemize}
+		\item
+			3D Jump \& Run
+		\item
+			Twist: Aufsammelbare Objekte "andern die
+			Richtung der Schwerkraft
+		\item
+			Engine: Unity\\
+			Spielelogik in C\#
+	\end{itemize}
+\end{frame}
+
+\section{Herausforderungen}
+\begin{frame}
+	\begin{itemize}
+		\item
+			Unity scheint nicht auf jedem Computer
+			zu laufen
+		\item
+			Mehrere Entwickler\\
+			$\mapsto$ problematisch, da viele Dateien
+			Bin"arformate aufweisen und teilweise
+			Versionsnummern in Dateien gespeichert
+			werden (Unity-Projekt...)
+		\item
+			Dokumentation der API teilweise ungenau
+			(vom API-Design selbst gar nicht zu reden;
+			Euler-Winkel? Oh, boy...)
+		\item
+			Schwerkraft"anderung h"ort sich einfach
+			an, \textbf{aber}...
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{itemize}
+		\item
+			Bewegung der Spielfigur sowie Kameraf"uhrung
+			ist im 3D-Raum nicht gerade trivial.
+			Vorgefertigte ``Assets'' versprechen Abhilfe,
+			\textbf{aber}...
+		\item
+			In den Programmschnipseln der Assets ist
+			oft +Y als ``oben'' hartkodiert.\\
+			$\mapsto$ "Anderungen der Standard-Assets
+			erforderlich
+		\item
+			Bewegung ist aus Kamerasicht (analog zu
+			einem gewissen italienischen Klempner);
+			das ``folge dem Spieler'' Ka\-me\-ra\-mo\-dul
+			ist aber ganz offensichtlich nicht
+			daf"ur gedacht, dass der Spieler an der
+			Wand entlang l"auft...
+	\end{itemize}
+\end{frame}
+
+\section{Demo}
+\begin{frame}
+	\begin{center}
+		\Huge
+		Demo
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\Large
+		Vielen Dank f"ur Ihre Aufmerksamkeit!
+	\end{center}
+\end{frame}
+
+\end{document}
