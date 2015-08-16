@@ -28,7 +28,7 @@ public class PlayerCtlBehavior : MonoBehaviour {
 		}
 		if(killed) {
 			killed = false;
-			Application.LoadLevel(Application.loadedLevelName);
+			Application.LoadLevel(Application.loadedLevel);
 		}
 	}
 
@@ -41,7 +41,15 @@ public class PlayerCtlBehavior : MonoBehaviour {
 		} else if (other.gameObject.tag == "killZone") {
 			killed = true;
 		} else if (other.gameObject.tag == "targetZone") {
-			Application.LoadLevel(0);
+			int nextLevel = Application.loadedLevel + 1;
+			if (nextLevel < Application.levelCount)
+			{
+				Application.LoadLevel(nextLevel);
+			}
+			else
+			{
+				Application.LoadLevel(0);
+			}
 		}
 	}
 
