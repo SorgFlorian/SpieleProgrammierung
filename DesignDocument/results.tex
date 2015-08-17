@@ -37,20 +37,35 @@ Neben den diesen nichtfunktionalen Komponenten besteht der Prototyp noch aus meh
 	\item Input Handling : Das Input Handling (die Steuerung) wird gr"o"stenteils von Unity "ubernommen, mit ein paar anpassungen wegen der Schwerkraft "Anderung
 	\item Message Handling : Das Message Handling erlaubt uns auf bestimmte Nachrichten zu reagieren (neues Level laden, pause, etc...)
 	\item "Anderung der Schwerkraft : Das zentrale Spielkonzept. Die Richtung der Schwerkraft kann sich "andern
-	\item Kamera : Die Kameraf"uhrung funktioniert zwar, hat allerdings noch Raum f"ur Verbesserungen.
+	\item Kamera : Die Kameraf"uhrung funktioniert zwar, hat allerdings noch Raum f"ur Verbesserungen (siehe \fullref{sec:results/future}).
 \end{itemize} 
 %
 \subsection{Erfahrungen}
 \label{sec:results/xp}
 %
-TODO.
+Im laufe des Projekts haben wir einige Erfahrungen sowohl in Bezug auf die eingesetzte Technologien als auch in Bezug auf Spiele Enwicklung allgemein.
+
+Leider haben wir feststellen m"ussen das unsere gew"ahlte Entwicklungsumgebung (Unity) einige Probleme/Einschr"ankungen hat :
+\begin{itemize}
+	\item Statisches Koordinatensystem : Führt zu Problemen sobald die Schwerkraft ge"andert wird da in vielen f"allen angenommen wird dass die Y-Achse immer die Schwerkraftachse ist, und diese Annahme haben wir im Quelltext h"aufig zu Gesicht bekommen. Der gro"steil unserer Entwicklungsarbeit floss in die L"osung dieses Problems.
+	\item Durftige Dokumentation : Die Dokumentation einzelner Komponenten besteht h"aufig aus lediglich einem Satz.
+	\item Bugs : Unity hat auf einigen unseren Maschinen nicht funktioniert und wir sahen und deshalb teilweise dazu gezwungen auf leistungsschw"achere Maschinen auszuweichen.
+	\item Asset Store : Leider sind die hochwertigen Assets sehr teuer. Kostenlos bekommt man nur sehr wenig und von fragw"urdiger Qualit"at
+\end{itemize}
+Aufgrund dieser Probleme wurden k"onnen wir Unity nicht empfehlen und wurden Unity in keinem weiteren Projekt verwenden.
+
+Insgesamt haben wir feststellen m"ussen das die Spiele Entwicklung ein sehr kreativer Prozess ist. Der eigentlichen Implementierung geht ein langer Zeitraum kreativen Schaffens zuvor in welchem grundlegende Ideen entwickelt werden.
+
+Unsere gr"o"ste H"urde in diesem Prozess war die Findung einer Spielidee. Wir mussten dabei darauf achten das die Spielidee nicht zu einfach, nicht zu schwer und nebenbei noch interessant ist.
 %
 \subsection{Ausblick}
 \label{sec:results/future}
 %
 Obwohl wir insgesamt zufrieden mit unserem Prototyp sind, sehen wir noch einige Verbesserungsm"oglichkeiten und Erweiterungspotenzial:
 \begin{itemize}
-	\item Bessere Animationen : Obwohl unsere momentane Animationen funktionieren, gibt es auch hier viel raum f"ur Verbesserungen. Zum einen durch bessere Aufnahmen und zum anderen durch bessere Anpassung der Animationen an unseren Avatar und aneinander (zum Beispiel bessere "Uberg"ange zwischen Animationszust"ande).
-	\item Bessere Kamerasteuerung : Im moment ist einer der Hauptschwierigkeitsfaktoren unseres Spiels die Tatsache, dass die Kamerasteuerung sehr ungelenk ist. Zu w"unschen w"are hier eine freie Kamerasteuerung damit sich der Spieler auf das Level und den Weg zum Ziel konzentrieren kann.
-	\item Besseres Level Design : 
+	\item Bessere Animationen : Obwohl unsere momentane Animationen funktionieren, gibt es auch hier viel raum f"ur Verbesserungen. Zum einen durch bessere Aufnahmen und zum anderen durch bessere Anpassung der Animationen an unseren Avatar und aneinander (zum Beispiel bessere "Uberg"ange zwischen Animationszust"ande)
+	\item Bessere Kamerasteuerung : Im Moment ist einer der Hauptschwierigkeitsfaktoren unseres Spiels die Tatsache, dass die Kamerasteuerung sehr ungelenk ist. Zu w"unschen w"are hier eine freie Kamerasteuerung damit sich der Spieler auf das Level und den Weg zum Ziel konzentrieren kann
+	\item Besseres Level Design : Das momentane Level Design ist sehr einfach und k"onnte noch deutlich verbessert werden
+	\item Mehr Spielkonzepte : Im Moment dreht sich das gesamte Spiel um die Schwerkraftmanipulation. Durch das Einbauen neuer Spielkonzepte (zum Beispiel Gegner, Fallen, etc...) wurde sich der Focus verteilen und damit abwechslungsreicheres Level Design erm"oglichen
+	\item Optimierte Schwerkraft"anderung : Zur Zeit gehen beim Schwerkraftwechsel s"amtliche zum Zeitpunkt des Wechsels herrschende Geschwindigkeiten verloren. Blieben diese Geschwindigkeiten erhalten wurde das M"oglichkeiten f"ur ein besseres Level Design er"offnen 
 \end{itemize}
