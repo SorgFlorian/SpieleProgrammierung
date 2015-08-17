@@ -29,16 +29,16 @@ Dateien gebraucht werden und welche nicht.
 Zum Zeitpunkt der Abgabe besteht der Prototyp aus folgenden Komponenten:
 \begin{itemize}
 	\item Hauptmen"u
-	\item Level Auswahl Men"u
+	\item Levelauswahlmen"u
 	\item Pause Men"u
 	\item F"unf Levels
 	\begin{itemize}
-		\item Level 1 : Sehr einfach, dazu gedacht den Spieler in das Spielprinzip einzuf"uhren
+		\item Level 1 : Sehr einfach; dazu gedacht, den Spieler in das Spielprinzip einzuf"uhren
 		\item Level 2 : Schwerer als Level 1, allerdings noch recht kurz
-		\item Level 3 : Dieses Level bietet erstmals die Möglichkeit in einer Sackgasse zu landen.
-			Befindet sich der Spieler erstmals in einer Sackgasse, hilft nur noch ein Neustart
+		\item Level 3 : Dieses Level bietet erstmals die M"oglichkeit in einer Sackgasse zu landen.
+			Befindet sich der Spieler in einer Sackgasse, hilft nur noch ein Neustart
 		\item Level 4 : Dieses Level hat keine Sackgassen, ist allerdings l"anger und f"uhrt
-			Rätselelemente ohne Schwerkraft "anderungen ein.
+			R"atselelemente ohne Schwerkraft"anderungen ein
 		\item Level 5 : In diesem Level muss sich der Spieler zwischen verschiedenen Routen
 			entscheiden (wobei nur eine zum Ziel f"uhrt) und Hindernissen in Form von
 			Schwerkraftpfeilen ausweichen
@@ -46,17 +46,17 @@ Zum Zeitpunkt der Abgabe besteht der Prototyp aus folgenden Komponenten:
 \end{itemize}
 
 Neben den diesen nichtfunktionalen Komponenten besteht der Prototyp noch aus mehreren technischen
-Aspekten durch welche das Spielen erst m"oglich wird:
+Aspekten, durch welche das Spielen erst m"oglich wird:
 \begin{itemize}
 	\item Animationen: Die verwendeten Animationen sind von Unity bereitgestellte MoCap Aufnahmen.
 		Diese Aufnahmen mussten entsprechend auf den Avatar angepasst werden und mittels Blend Trees zum
 		richtigen Zeitpunkt abgespielt werden.
 	\item Input Handling: Das Input Handling (die Steuerung) wird gr"o"stenteils von Unity "ubernommen,
 		mit ein paar Anpassungen bez"uglich der Schwerkraft"anderung
-	\item Message Handling: Das Message Handling erlaubt uns auf bestimmte Nachrichten zu reagieren
+	\item Message Handling: Das Message Handling erlaubt es uns, auf bestimmte Nachrichten zu reagieren
 			(neues Level laden, Pause, etc...)
-	\item "Anderung der Schwerkraft: Das zentrale Spielkonzept. Die Richtung der Schwerkraft kann sich "andern
-	\item Kamera: Die Kameraf"uhrung funktioniert zwar, hat allerdings noch Raum f"ur Verbesserungen.
+	\item "Anderung der Schwerkraft: Das zentrale Spielkonzept; die Richtung der Schwerkraft kann sich "andern
+	\item Kamera: Die Kameraf"uhrung funktioniert zwar, hat allerdings noch Raum f"ur Verbesserungen
 \end{itemize}
 %
 \subsection{Erfahrungen}
@@ -66,22 +66,22 @@ Der Entwicklungsprozess zeigte deutlich, wie problematisch es
 ist, wenn externe Softwarekomponenten benutzt werden, deren
 Entwickler diese nicht f"ur den gew"unschten Zweck konzipiert haben.
 Es waren so einige Anpassungen notwendig, um diese
-``fremdprogrammierten'' Teile zielf"uhren einsetzen zu k"onnen.
+``fremdprogrammierten'' Teile zielf"uhrend einsetzen zu k"onnen.
 
 Die teilweise eher mangelhafte API-Referenz von Unity 3D zeigte
 au"serdem einmal wieder auf, wie wichtig die umfassende Dokumentation
 von Softwarekomponenten ist, welche von anderen Entwicklern
 verwendet werden sollen.
 
-Die teilweise verteilte Entwicklung und die gelegendlichen R"uckschritte
-betonte die Notwendigkeit f"ur ein (ebenfalls verteiltes!)
+Die teilweise verteilte Entwicklung und die gelegentlichen R"uckschritte
+betonten die Notwendigkeit f"ur ein (ebenfalls verteiltes!)
 Versionskontrollsystem\footnote{Subversion est mort. Vive Git!}.
 %
 \subsection{Ausblick}
 \label{sec:results/future}
 %
 Obwohl wir insgesamt zufrieden mit unserem Prototyp sind, sehen wir noch einige
-Verbesserungsm"oglichkeiten und Erweiterungspotenzial:
+Verbesserungsm"oglichkeiten und Erweiterungspotential:
 
 \begin{itemize}
 	\item
@@ -89,15 +89,12 @@ Verbesserungsm"oglichkeiten und Erweiterungspotenzial:
 	\item
 		qualitativere Modelle
 	\item
-		Es sollte wahrscheinlich noch eine bessere Semantik
-		der Kameraf"uhrung gefunden werden.
-	\item
 		``Umsehen''-Funktion, um einen "Uberblick "uber die Karte
 		zu erhalten
 	\item
 		mehr Puzzlecharakter f"ur die Levels
 	\item Bessere Animationen: Obwohl unsere momentane Animationen funktionieren, gibt es auch hier viel
-		Raum f"ur Verbesserungen. Zum einen durch bessere Aufnahmen und zum anderen durch bessere Anpassung
+		Raum f"ur Verbesserungen, zum einen durch bessere Aufnahmen und zum anderen durch bessere Anpassung
 		der Animationen an unseren Avatar und aneinander (zum Beispiel bessere "Uberg"ange zwischen
 		Animationszust"anden).
 	\item Bessere Kamerasteuerung: Im Moment ist einer der Hauptschwierigkeitsfaktoren unseres Spiels die

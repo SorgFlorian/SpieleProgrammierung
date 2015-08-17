@@ -11,14 +11,14 @@ Der Einfachheit halber sind im Prototyp die Karten aus Quadern aufgebaut.
 Es sollte keine gro"se Schwierigkeit darstellen, ``bessere'' Modelle
 zu verwenden, sofern solche vorhanden sind. Durch die "ubliche Kollisionsdetektion
 kann der Spieler ohne weiteres Zutun auf den Oberfl"achen der Quader laufen.
-Das Ziel (oder die Ziele; also jedlicher Ort, dessen Erreichen einen Level als
+Das Ziel (oder die Ziele; also jeglicher Ort, dessen Erreichen einen Level als
 ``gewonnen'' beendet) ist ebenfalls ein solcher ``normaler'' Bestandteil der Karte
 und unterscheidet sich lediglich durch den Game Object Tag \texttt{targetZone}
-von ``Nicht-Zielen''. Durch die Pr"asenz dieses Tags ended das Spiel bei
-ber"uhren des entsprechenden Objekts (im Prototyp ebenfalls Quader).
+von ``Nicht-Zielen''. Durch die Pr"asenz dieses Tags endet das Spiel bei
+Ber"uhren des entsprechenden Objekts (im Prototyp ebenfalls Quader).
 
 Falls der Spieler von dem gegebenen Parcour herunterf"allt, soll er nicht
-endlos fallen, soldern das Spiel ebenfalls (als ``verloren'') beendet
+endlos fallen, sondern das Spiel ebenfalls (als ``verloren'') beendet
 werden. Hierzu wird jeder Level im l"uckenlose W"ande eingeschlossen,
 deren ber"uhren den Spieler ``t"otet''. Dies passert, weil diese W"ande
 den Game Object Tag \texttt{killZone} besitzen.
@@ -59,7 +59,7 @@ die Attribute \texttt{?\_Grav\_Factor}, welche die Komponenten des Vektor darste
 der die neue Schwerkraft angibt.
 
 Wenn sich die Richtung der Schwerkraft "andert, so wird die Spielfigur
-gedreht, so dass die gem"a"s der neuen Richtung ``aufrecht'' steht
+gedreht, so dass sie gem"a"s der neuen Richtung ``aufrecht'' steht
 (d.h. mit den F"u"sen in der Richtung der neuen Schwerkraft). Diese
 Drehung kann Probleme verursachen, da Teilen der Spielfigur ein Teil
 der Levelgeometrie ``im Weg'' sein kann. Um dies zu verhindern, besitzt
