@@ -184,24 +184,45 @@ m_Animator.SetFloat("Jump", (m_Rigidbody.velocity
 %
 \subsection{Kamera}
 \label{sec:implementation/camera}
-% MultiPurposeCameraRig
 %
-TODO.
+Anf"anglich wurde die Kamera auf klassische Art hinter
+der Spielfigur plaziert. Hierdurch verdeckt die Figur
+allerdings den vor ihr liegenden Teil der Szene, was
+oft nicht sinnvoll ist. Daher wird stattdessen der
+Unity-eigene Mechanismus der ``Multipurpose Camera Rig''
+verwendet, welcher die Kamera der Spielfigur so folgen
+l"asst, dass sich die Kamera hierzu m"oglichst wenig
+bewegen muss. Der Effekt hiervon entspricht in etwa
+einem Kameramann, der die Szene filmt, aber immer
+die Spielfigur im Bild beh"alt.
 %
 \subsection{Schwerkraftpfeile}
 \label{sec:implementation/arrows}
-% ...
 %
-TODO.
+F"ur die Schwerkraftpfeile wurde in Blender eigens ein
+Modell eines dreidimensionalen Pfeils erstellt. Die
+Pfeile zeichnen sich durch den Game Object Tag
+\texttt{gravArrow} aus (siehe \fullref{sec:implementation/maps}).
+Die Schwerkraft"anderung selbst wird von der Spielfigur
+durchgef"uhrt, nicht von den einzelnen Pfeilen
+(siehe \fullref{sec:implementation/gravity}).
 %
 \subsection{Game Over}
 \label{sec:implementation/gameover}
-% ...
-%
-TODO.
+Sowohl das Gewinnen als auch das Verlieren den Spiels
+entspricht dem Ber"uhren spezieller Objekte (Ziel
+bzw. Kill Zone). Beide F"alle sind bis jetzt lediglich
+durch das Laden von Levels implementiert (siehe
+\fullref{sec:implementation/avatar}). In einem
+``echten'' Produkt sollte vermutlich Feedback in Form
+einer Nachricht gegeben werden.
 %
 \subsection{Men"us und Levelfolge}
 \label{sec:implementation/menus}
-% HandleMessages.cs
 %
-TODO.
+Die Men"us wurden mit den ``2D-Elemente im 3D-Raum''-F"ahigkeiten
+von Unity erstellt. Der Einfachheit halber bestehen sie schlicht
+aus einfachen Buttons. Das Klicken der Buttons wird von der
+Klasse \texttt{HandleMessages} mit passenden Reaktionen verbunden.
+Im Prototyp m"ussen zu Testzwecken die Levels nicht ``freigespielt''
+werden, sondern k"onnen auch im Menu direkt angew"ahlt werden.
