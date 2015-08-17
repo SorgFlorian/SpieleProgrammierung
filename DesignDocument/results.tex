@@ -14,7 +14,31 @@ In diesem Kapitel werden die Ergebnisse der Projektarbeit untersucht:
 \subsection{Prototyp}
 \label{sec:results/prototype}
 %
-TODO.
+Zum Zeitpunkt der Abgabe besteht der Prototyp aus folgenden Komponenten:
+\begin{itemize}
+	\item Hauptmen"u
+	\item Level Auswahl Men"u
+	\item Pause Men"u
+	\item F"unf Levels
+	\begin{itemize}
+		\item Level 1 : Sehr einfach, dazu gedacht den Spieler in das Spielprinzip einzuf"uhren
+		\item Level 2 : Schwerer als Level 1, allerdings noch recht kurz
+		\item Level 3 : Dieses Level bietet erstmals die Möglichkeit in einer Sackgasse zu landen. Befindet sich der Spieler erstmals in einer Sackgasse 
+										hilft nur noch ein neustart
+		\item Level 4 : Dieses Level hat keine Sackgassen, ist allerdings l"anger und f"uhrt Rätselelemente ohne Schwerkraft "anderungen ein.
+		\item Level 5 : In diesem Level muss sich der Spieler zwischen verschiedenen Routen entscheiden (wobei nur eine zum Ziel f"uhrt) und 
+										Hindernissen in form von Schwerkraftpfeilen ausweichen
+	\end{itemize}
+\end{itemize}
+
+Neben den diesen nichtfunktionalen Komponenten besteht der Prototyp noch aus mehreren technischen Aspekten durch welche das Spielen erst m"oglich wird:
+\begin{itemize}
+	\item Animationen : Die verwendeten Animationen sind von Unity bereitgestellte MoCap Aufnahmen. Diese Aufnahmen mussten entsprechend auf den Avatar angepasst werden und mittels Blend Trees zum richtigen Zeitpunkt abgespielt werden.
+	\item Input Handling : Das Input Handling (die Steuerung) wird gr"o"stenteils von Unity "ubernommen, mit ein paar anpassungen wegen der Schwerkraft "Anderung
+	\item Message Handling : Das Message Handling erlaubt uns auf bestimmte Nachrichten zu reagieren (neues Level laden, pause, etc...)
+	\item "Anderung der Schwerkraft : Das zentrale Spielkonzept. Die Richtung der Schwerkraft kann sich "andern
+	\item Kamera : Die Kameraf"uhrung funktioniert zwar, hat allerdings noch Raum f"ur Verbesserungen.
+\end{itemize} 
 %
 \subsection{Erfahrungen}
 \label{sec:results/xp}
@@ -24,4 +48,9 @@ TODO.
 \subsection{Ausblick}
 \label{sec:results/future}
 %
-TODO.
+Obwohl wir insgesamt zufrieden mit unserem Prototyp sind, sehen wir noch einige Verbesserungsm"oglichkeiten und Erweiterungspotenzial:
+\begin{itemize}
+	\item Bessere Animationen : Obwohl unsere momentane Animationen funktionieren, gibt es auch hier viel raum f"ur Verbesserungen. Zum einen durch bessere Aufnahmen und zum anderen durch bessere Anpassung der Animationen an unseren Avatar und aneinander (zum Beispiel bessere "Uberg"ange zwischen Animationszust"ande).
+	\item Bessere Kamerasteuerung : Im moment ist einer der Hauptschwierigkeitsfaktoren unseres Spiels die Tatsache, dass die Kamerasteuerung sehr ungelenk ist. Zu w"unschen w"are hier eine freie Kamerasteuerung damit sich der Spieler auf das Level und den Weg zum Ziel konzentrieren kann.
+	\item Besseres Level Design : 
+\end{itemize}
