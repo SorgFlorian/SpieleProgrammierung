@@ -11,7 +11,7 @@ Der Einfachheit halber sind im Prototyp die Karten aus Quadern aufgebaut.
 Es sollte keine gro"se Schwierigkeit darstellen, ``bessere'' Modelle
 zu verwenden, sofern solche vorhanden sind. Durch die "ubliche Kollisionsdetektion
 kann der Spieler ohne weiteres Zutun auf den Oberfl"achen der Quader laufen.
-Das Ziel (oder die Ziele; also jedlicher Ort, dessen Erreichen ein Level als
+Das Ziel (oder die Ziele; also jedlicher Ort, dessen Erreichen einen Level als
 ``gewonnen'' beendet) ist ebenfalls ein solcher ``normaler'' Bestandteil der Karte
 und unterscheidet sich lediglich durch den Game Object Tag \texttt{targetZone}
 von ``Nicht-Zielen''. Durch die Pr"asenz dieses Tags ended das Spiel bei
@@ -19,7 +19,7 @@ ber"uhren des entsprechenden Objekts (im Prototyp ebenfalls Quader).
 
 Falls der Spieler von dem gegebenen Parcour herunterf"allt, soll er nicht
 endlos fallen, soldern das Spiel ebenfalls (als ``verloren'') beendet
-werden. Hierzu wird jedes Level im l"uckenlose W"ande eingeschlossen,
+werden. Hierzu wird jeder Level im l"uckenlose W"ande eingeschlossen,
 deren ber"uhren den Spieler ``t"otet''. Dies passert, weil diese W"ande
 den Game Object Tag \texttt{killZone} besitzen.
 
@@ -98,15 +98,89 @@ void FixedUpdate() {
 %
 \subsection{Spielfigur}
 \label{sec:implementation/avatar}
-% ThirdPersonCharacter.cs, ThirdPersonUserControl.cs, PlayerCtlBehavior.cs
-%
-TODO.
+Das Modell der Spielfigur ist dem Asset Store entnommen.
+Mit den in Unity enthaltenen Klassen \texttt{ThirdPersonCharacter}
+und \texttt{ThirdPersonUserControl} kann der Spieler diese
+bereits steuern (siehe \fullref{sec:implementation/controls}).
+
+Als zus"atzliche Komponente f"ur die Spielfigur existiert
+die Komponentenklasse \texttt{PlayerCtlBehavior}, welche die Effekte
+des Ber"uhrens von speziellen Objekten definiert. Die
+Interaktion mit den Schwerkraftpfeilen ist in
+\fullref{sec:implementation/gravity} beschrieben.
+
+Falls der Spieler zu Tode st"urzt, sprich ein Objekt mit dem
+Tag \texttt{killZone} ber"uhrt, so wird der Level neu geladen,
+wodurch der Spieler wieder an die Ausgangsposition zur"uckversetzt
+wird. Listing \ref{lst:implementation/avatar/killZone}
+zeigt diesen Vorgang.
+
+\begin{lstlisting}[caption={Sterben},label=lst:implementation/avatar/killZone]
+void OnTriggerEnter(Collider other) {
+    // ...
+    if (other.gameObject.tag == "killZone") {
+        killed = true;
+    }
+    // ...
+}
+
+void FixedUpdate() {
+    // ...
+    if(killed) {
+        killed = false;
+        Application.LoadLevel(Application.loadedLevel);
+    }
+}
+\end{lstlisting}
+
+Falls der Spieler das Ziel erreicht, sprich ein Objekt mit dem
+Tag \texttt{targetZone} ber"uhrt, so wird der n"achste Level geladen
+(oder das Men"u, falls kein n"achster Level existiert). Listing
+\ref{lst:implementation/avatar/targetZone} zeigt diesen
+Vorgang.
+
+\begin{lstlisting}[caption={Gewinnen},label=lst:implementation/avatar/targetZone]
+void OnTriggerEnter(Collider other) {
+    // ...
+    if (other.gameObject.tag == "targetZone") {
+        int nextLevel = Application.loadedLevel + 1;
+        if (nextLevel < Application.levelCount)
+            Application.LoadLevel(nextLevel);
+        else
+            Application.LoadLevel(0);
+    }
+}
+\end{lstlisting}
 %
 \subsection{Steuerung}
 \label{sec:implementation/controls}
 %
-% ThirdPersonCharacter.cs
-TODO.
+Die Reaktionen der Spielfigur auf Steuerungstasten werden
+von der in Unity enthaltenen Klasse \texttt{ThirdPersonCharacter}
+definiert. Problematisch hierbei ist, dass die Autoren dieser
+Klasse nicht damit gerechnet haben, dass an W"anden oder der
+Decke entlang gelaufen wird. Es sind entsprechend so einige
+Stellen in dem Standard-Code enthalten, welche die positive
+Y-Achse als ``oben'' betrachten. Da sich durch die
+Schwerkraft"anderungen die Bedeutung von ``oben'' unvermittelt
+"andern kann, funktioneren diese Definitionen nicht direkt
+in der ``Standardausf"uhrung''.
+
+Es mussten dementsprechend alle Bez"uge auf hartcodierte
+Richtungen durch Ausdr"ucke ersetzt werden, welche die
+gew"unschte Richtung anhand der derzeitigen Schwerkraft
+berechnen. Listing
+\ref{lst:implementation/controls/hardcodedY} zeigt solch
+einen Fall.
+
+\begin{lstlisting}[caption={Korrektur hartcodierter Richtungen},label=lst:implementation/controls/hardcodedY]
+// Falsch: Unity nimmt +Y als oben an
+m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
+// Richtig: Die Richtung der Schwerkraft ist entscheidend
+m_Animator.SetFloat("Jump", (m_Rigidbody.velocity
+    - Vector3.ProjectOnPlane(m_Rigidbody.velocity,
+    -Physics.gravity)).magnitude);
+\end{lstlisting}
 %
 \subsection{Kamera}
 \label{sec:implementation/camera}
