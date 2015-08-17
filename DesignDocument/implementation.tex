@@ -1,20 +1,100 @@
 \section{Umsetzung}
 \label{sec:implementation}
 %
-Dieses Kapitel beschriebt die Umsetzung der einzelnen Aspekte des
+Dieses Kapitel beschreibt die Umsetzung der einzelnen Aspekte des
 entwickelten Computerspiels.
 %
 \subsection{Kartengestaltung}
 \label{sec:implementation/maps}
 %
-% Boxes, kill zone of boxes (killZone tag), target zone (targetZone tag)
-TODO.
+Der Einfachheit halber sind im Prototyp die Karten aus Quadern aufgebaut.
+Es sollte keine gro"se Schwierigkeit darstellen, ``bessere'' Modelle
+zu verwenden, sofern solche vorhanden sind. Durch die "ubliche Kollisionsdetektion
+kann der Spieler ohne weiteres Zutun auf den Oberfl"achen der Quader laufen.
+Das Ziel (oder die Ziele; also jedlicher Ort, dessen Erreichen ein Level als
+``gewonnen'' beendet) ist ebenfalls ein solcher ``normaler'' Bestandteil der Karte
+und unterscheidet sich lediglich durch den Game Object Tag \texttt{targetZone}
+von ``Nicht-Zielen''. Durch die Pr"asenz dieses Tags ended das Spiel bei
+ber"uhren des entsprechenden Objekts (im Prototyp ebenfalls Quader).
+
+Falls der Spieler von dem gegebenen Parcour herunterf"allt, soll er nicht
+endlos fallen, soldern das Spiel ebenfalls (als ``verloren'') beendet
+werden. Hierzu wird jedes Level im l"uckenlose W"ande eingeschlossen,
+deren ber"uhren den Spieler ``t"otet''. Dies passert, weil diese W"ande
+den Game Object Tag \texttt{killZone} besitzen.
+
+Die Effekte dieser beiden Tags sind in \fullref{sec:implementation/avatar}
+n"aher beschrieben.
 %
 \subsection{Schwerkraft"anderung}
 \label{sec:implementation/gravity}
 %
-% gravArrow tag, GravitationOrientation component, boost, ...
-TODO.
+Die aufsammelbaren Schwerkraftpfeile (siehe \fullref{sec:implementation/arrows})
+zeichnen sich durch den Game Object Tag \texttt{gravArrow} aus. Beim Ber"uhren
+eines Objekts mit diesem Tag wird die Schwerkraft gem"a"s den Informationen in
+der Komponente \texttt{GravitationOrientation} des Objekts (welche es auch
+besitzen muss) ver"andert. Das Objekt wird hierbei deaktiviert, kann also danach
+nicht noch einmal aufgesamment werden. Die Klasse \texttt{PlayerCtlBehavior}
+erledigt dies in ihrer Methode \texttt{OnTriggerEnter}, welche von Unity
+aufgerufen wird, wenn der Besitzer der betreffenden Instanz der Klasse (die
+Spielfigur) ein anderes Objekt ber"uhrt. Listing
+\ref{lst:implementation/gravity/OnTriggerEnter} zeigt desen Vorgang.
+
+\begin{lstlisting}[caption={Kollision mit Schwerkraftpfeil},label=lst:implementation/gravity/OnTriggerEnter]
+if (other.gameObject.tag == "gravArrow") {
+    other.gameObject.SetActive (false);
+    GravitationOrientation orientation = other.gameObject
+            .GetComponent<GravitationOrientation> ();
+    targetGrav = new Vector3 (
+        orientation.x_Grav_Factor,
+        orientation.y_Grav_Factor,
+        orientation.z_Grav_Factor
+    );
+    boost = orientation.boostNeeded;
+}
+\end{lstlisting}
+
+Die zentralen Eingenschaften von \texttt{GravitationOrientation} sind
+die Attribute \texttt{?\_Grav\_Factor}, welche die Komponenten des Vektor darstellen,
+der die neue Schwerkraft angibt.
+
+Wenn sich die Richtung der Schwerkraft "andert, so wird die Spielfigur
+gedreht, so dass die gem"a"s der neuen Richtung ``aufrecht'' steht
+(d.h. mit den F"u"sen in der Richtung der neuen Schwerkraft). Diese
+Drehung kann Probleme verursachen, da Teilen der Spielfigur ein Teil
+der Levelgeometrie ``im Weg'' sein kann. Um dies zu verhindern, besitzt
+\texttt{GravitationOrientation} zus"atzlich das Flag \texttt{boostNeeded}.
+Falls dieses \texttt{true} ist, so wird die Spielfigur nach "Anderung
+der Schwerkraft und Drehen der Figur noch nach oben geschleudert, um
+sich von der Oberfl"ache zu entfernen. Listing
+\ref{lst:implementation/gravity/gravityUpdate} zeigt diesen Vorgang
+in der Klasse \texttt{PlayerCtlBehavior}.
+
+\begin{lstlisting}[caption={Anpassung der Schwerkraft und Spielfigur},label=lst:implementation/gravity/gravityUpdate]
+// Schwerkraftanpassung
+bool gravityUpdate() {
+    if (Physics.gravity.normalized != targetGrav) {
+        Physics.gravity = targetGrav * 9.81f;
+        return true;
+    }
+    return false;
+}
+
+// Physik-Update
+void FixedUpdate() {
+    if (gravityUpdate ()) {
+        transform.up = -Physics.gravity; // Figur drehen
+        // Figur anhalten
+        GetComponent<Rigidbody>().velocity
+                = Vector3.zero;
+        // Figur von Quader wegbewegen
+        if (boost)
+            transform.position += Physics.gravity
+                    .normalized * boostStrength;
+    }
+    // ...
+}
+\end{lstlisting}
 %
 \subsection{Spielfigur}
 \label{sec:implementation/avatar}
