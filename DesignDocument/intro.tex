@@ -1,0 +1,65 @@
+\section{Einf"uhrung}
+\label{sec:intro}
+%
+Dieses Kapitel befasst sich mit den organisatorischen Aspekten des Projekts:
+\begin{itemize}
+	\item
+		Worum geht es "uberhaupt? (\fullref{sec:intro/requirements})
+	\item
+		Was wurde erstellt? (\fullref{sec:intro/idea})
+	\item
+		Womit wurde es erstellt? (\fullref{sec:intro/technologies})
+\end{itemize}
+%
+\subsection{Aufgabenstellung}
+\label{sec:intro/requirements}
+%
+Gem"a"s des Manuskripts des Kurses war als Projektarbeit die ``Konzeption und Entwicklung
+eines Computerspiels'' vorgesehen, mit einem spielbaren ``Prototypen'' als Ergebnis. Die
+verwendeten Technologien sowie die Natur des Spiels selbst waren offen gelassen. Es galt
+also zun"achst eine Idee zu finden und diese dann umzusetzen. Im Zuge dieser Umsetzung
+galt es, sich f"ur passende Technologien zu entscheiden, um die Implementation des
+Prototyps zu erm"oglichen.
+%
+\subsection{Idee}
+\label{sec:intro/idea}
+Der Ansatz zur Ideenfindung war, einem der ``Klassiker'' der Videospielwelt neues
+Leben einzuhauchen, indem man einen ``Twist'' (also eine unerwartete ``Wende'';
+in diesem Fall eine Eigenheit des Spielmachanik) hinzuf"ugt. Die Wahl fiel auf
+ein klassisches Jump and Run -- der naheliegende Twist ist daher, die Grundlage eben
+dieses Laufens und Springens zu beeinflussen. Der wohl grundlegendste Aspekt hiervon
+ist die Schwerkraft.
+
+Aus dieser Logik ergab sich der Twist, die Richtung der Schwerkraft w"ahrend des
+Spielablaufes zu ver"andern. Da eine solche "Anderung wahrscheinlich eher frustrierend
+ist, falls sie nicht der Kontrolle des Spielers unterliegt, sollte diesem lediglich
+die \textit{M"oglichkeit} gegeben werden, diese Kontrolle auszu"uben. Die Herausforderung
+verschiebt sich hierdurch: Anstatt gegen die Schwerkraft"anderung zu ``k"ampfen'',
+muss der Spieler diese geschickt einsetzten, um seine Ziele zu erreichen.
+
+Um die Kontrolle "uber die Schwerkraft dem Spiele zu "uberlassen, daber diese
+Kontrolle dennoch einzuschr"anken, wurde folgendes Konzept erdacht: In jedem
+Level sind im Voraus Pfeile plaziert, welche als aufsammelbare ``Items''
+fungieren. Wenn der Spieler einen solchen Pfeil aufsammelt, so "andert sich
+die Schwerkraft in die Richtung, in welche der Pfeil zeigt. Beim Kartendesign
+k"onnen somit Routen geschaffen werden, welche das Aufsammeln gewisser Pfeile
+beinhalten.
+
+Auf der Basis dieses Konzept w"urde dann das naheliegende Ziel des Spiels das
+Erreichen eines gewissen Ortes sein; der Spieler muss dann einen Weg zu diesem Ort
+finden. Durch die Pr"asenz der Pfeile kann dieser Weg das Entlanglaufen an
+W"anden oder der Decke beinhalten.
+%
+\subsection{Verwendete Technologien}
+\label{sec:intro/technologies}
+Als bereits existierende Game Engine wurde Unity 3D gew"ahlt. Dies scheint auf
+den ersten Blick insbesondere durch den eingebauten ``Asset Store'' attraktiv,
+da dort Modelle, Animationen, Texturen und andere Artefakte bereits vorgefertigt
+(und teilweise auch umsonst) zur Verf"ugung stehen. Die Spielelogik wurde
+dementsprechend in der Programmiersprache C\# geschrieben.
+
+Soll der Prototyp weiterentwickelt oder eingesehen werden, wird daher Unity 3D
+ben"otigt. Durch die eingebaute Distribution des Mono-Projekts sind sowohl
+Entwicklungswerkzeuge (Toolchain; inspesondere Compiler und Linker) f"ur C\#
+dort bereits enthalten. Mit MonoDevelop enth"alt Unity 3D auch bereits eine
+Entwicklungsumgebung f"ur Microsoft .NET (und damit auch C\#).
