@@ -14,14 +14,53 @@ In diesem Kapitel werden die Ergebnisse der Projektarbeit untersucht:
 \subsection{Prototyp}
 \label{sec:results/prototype}
 %
-TODO.
+Der Prototyp ist prinzipiell spielbar und zeigt das Prinzip der
+Spielidee auf. Es sind mehrere Levels enthalten und das Starten
+der Anwendung stellt den Spieler einem Hauptmen"u gegen"uber, in
+welchem er das Spiel starten oder beenden kann. W"ahrend des Spiels
+kann dieses pausiert werden.
+
+Es sind im Laufe der Entwicklung viele Dateien hinzugekommen, die
+nach jetzigem Stand "uberhaupt nicht verwendet werden; diese k"onnen
+prinzipiell entfernt werden. Unity bietet hierbei jedoch scheinbar
+keine Unterst"utzung; es ist nicht direkt ersichtlich, welche
+Dateien gebraucht werden und welche nicht.
 %
 \subsection{Erfahrungen}
 \label{sec:results/xp}
 %
-TODO.
+Der Entwicklungsprozess zeigte deutlich, wie problematisch es
+ist, wenn externe Softwarekomponenten benutzt werden, deren
+Entwickler diese nicht f"ur den gew"unschten Zweck konzipiert haben.
+Es waren so einige Anpassungen notwendig, um diese
+``fremdprogrammierten'' Teile zielf"uhren einsetzen zu k"onnen.
+
+Die teilweise eher mangelhafte API-Referenz von Unity 3D zeigte
+au"serdem einmal wieder auf, wie wichtig die umfassende Dokumentation
+von Softwarekomponenten ist, welche von anderen Entwicklern
+verwendet werden sollen.
+
+Die teilweise verteilte Entwicklung und die gelegendlichen R"uckschritte
+betonte die Notwendigkeit f"ur ein (ebenfalls verteiltes!)
+Versionskontrollsystem\footnote{Subversion est mort. Vive Git!}.
 %
 \subsection{Ausblick}
 \label{sec:results/future}
 %
-TODO.
+Sollte das Konzept weitergef"uhrt werden, so w"ahren noch einige
+Verbesserungen einzubauen:
+
+\begin{itemize}
+	\item
+		mehr Feedback f"ur den Benutzer (``Game Over''-Bildschirm etc.)
+	\item
+		qualitativere Modelle
+	\item
+		Es sollte wahrscheinlich noch eine bessere Semantik
+		der Kameraf"uhrung gefunden werden.
+	\item
+		``Umsehen''-Funktion, um einen "Uberblick "uber die Karte
+		zu erhalten
+	\item
+		mehr Puzzlecharakter f"ur die Levels
+\end{itemize}
